@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-16"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>DiminishDependencies.Tool</id>
+        <version>1.0.1</version>
+        <title>DiminishDependencies.Tool</title>
+        <authors>Public Domain</authors>
+        <owners>Jay Tuley</owners>
+        <licenseUrl>http://creativecommons.org/publicdomain/mark/1.0/</licenseUrl>
+        <projectUrl>https://github.com/jbtule/diminish-dependencies</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>This is the tool used to copy/compress assemblies using LZMA. This tool is to create the embedded resources that
+		DiminishDependencies bootstrap source needs to dynamically decompress and load at runtime.</description>
+        <summary>Tool to copy compress assemblies for use with a DiminishDependency bootstrapped shell app.</summary>
+        <releaseNotes>Initial Release</releaseNotes>
+        <copyright>Public Domain</copyright>
+        <tags>compression dll dependencies ilmerge</tags>
+        <dependencies>
+        </dependencies>
+    </metadata>
+    <files>
+	<file src="..\DiminishDependencies.Diminished\bin\Release\DiminishDependencies.Diminished.exe" target="tools\DiminishDependencies.exe" />
+    </files>
+</package>

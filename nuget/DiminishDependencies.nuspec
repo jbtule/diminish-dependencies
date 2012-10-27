@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>DiminishDependencies</id>
+        <version>1.0.1</version>
+        <title>DiminishDependencies</title>
+        <authors>Public Domain</authors>
+        <owners>Jay Tuley</owners>
+        <licenseUrl>http://creativecommons.org/publicdomain/mark/1.0/</licenseUrl>
+        <projectUrl>https://github.com/jbtule/diminish-dependencies</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>
+		An alternative option to ILMerge, this small set of public domain source code
+		is packaged for you to bootstrap an exe to load embedded LZMA compressed dlls
+		dependencies(or even your original exe if you want to compress it too) to end
+		up with a single smaller merged exe.
+		</description>
+        <summary>Bootstrap compressed dlls into one merged executable</summary>
+        <releaseNotes>Initial Release</releaseNotes>
+        <copyright>Public Domain</copyright>
+        <tags>compression dll dependencies ilmerge</tags>
+        <dependencies>
+        </dependencies>
+    </metadata>
+    <files>
+
+        <file src="..\Content\Content\**\*" target="content\" />
+        <file src="..\Readme.txt" target="Readme.txt" />  
+    </files>
+</package>
