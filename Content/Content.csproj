@@ -66,6 +66,9 @@
     <None Include="Content\Diminish\src\7zipsdk\Common\InBuffer.cs.pp" />
     <None Include="Content\Diminish\src\7zipsdk\Common\OutBuffer.cs.pp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Content\Diminish\src\Main.cs.pp" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
