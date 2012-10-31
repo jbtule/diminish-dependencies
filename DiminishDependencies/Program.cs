@@ -38,7 +38,9 @@ namespace DiminishDependencies
 
                     foreach(var expandedFile in Directory.GetFiles(dir, name))
                     {
-                        string outpath = Path.GetFileNameWithoutExtension(expandedFile) + ".dep-lzma";
+                        var baseFileName = Path.GetFileName(expandedFile);
+
+                        string outpath = baseFileName + ".dep-lzma";
                         using (
                             var output =
                                 File.Open(Path.Combine(outputdir, outpath),
