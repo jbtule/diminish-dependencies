@@ -109,3 +109,6 @@ UpgradeLog*.XML
 
 #compressed assemblies
 *.dep-lzma
+
+#built packages
+*.nupkg
