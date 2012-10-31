@@ -10,6 +10,7 @@ namespace DiminishDependencies
 {
     public class Program
     {
+      
         public static int Main(string[] args)
         {
             try
@@ -26,7 +27,7 @@ namespace DiminishDependencies
                     Console.WriteLine("Usage: DiminishDependencies.exe [-o outputdir] file1 [file2 ...]");
                 foreach (var file in extra)
                 {
-                    var dir =Path.GetDirectoryName(file);
+                    var dir =Path.GetDirectoryName(file) ?? ".";
                     var name = Path.GetFileName(file);
 
                     var filelist = Directory.GetFiles(dir, name);
@@ -37,13 +38,16 @@ namespace DiminishDependencies
 
                     foreach(var expandedFile in Directory.GetFiles(dir, name))
                     {
+                        var baseFileName = Path.GetFileName(expandedFile);
 
+                        string outpath = baseFileName + ".dep-lzma";
                         using (
                             var output =
-                                File.Open(Path.Combine(outputdir, Path.GetFileNameWithoutExtension(expandedFile) + ".dep-lzma"),
+                                File.Open(Path.Combine(outputdir, outpath),
                                           FileMode.Create, FileAccess.Write))
                         using (var input = File.OpenRead(expandedFile))
                         {
+                            Console.WriteLine("DiminishDependencies: Compressing {0} to {1}", Path.GetFileName(expandedFile), outpath);
                             Zipper.Encode(input, output);
                         }
                     }
