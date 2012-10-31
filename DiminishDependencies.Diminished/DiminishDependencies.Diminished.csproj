@@ -9,25 +9,31 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DiminishDependencies.Diminished</RootNamespace>
     <AssemblyName>DiminishDependencies.Diminished</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>x86</PlatformTarget>
-    <DebugSymbols>true</DebugSymbols>
+    <DebugSymbols>True</DebugSymbols>
     <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
+    <Optimize>False</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CustomCommands>
+      <CustomCommands>
+        <Command type="BeforeBuild" command="mono &quot;${SolutionDir}/packages/DiminishDependencies.Tool.1.0.1/tools/DiminishDependencies.exe&quot; -o &quot;${ProjectDir}/Diminish/refs&quot; &quot;${SolutionDir}/DiminishDependencies/bin/debug/DiminishDependencies.exe&quot; &quot;${SolutionDir}/DiminishDependencies/bin/debug/*.dll&quot;" pauseExternalConsole="True" />
+      </CustomCommands>
+    </CustomCommands>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
+    <Optimize>True</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
@@ -67,7 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DiminishDependencies\DiminishDependencies.csproj">
-      <Project>{3db50d61-0aa5-4797-a613-9feadc7e7c8d}</Project>
+      <Project>{3DB50D61-0AA5-4797-A613-9FEADC7E7C8D}</Project>
       <Name>DiminishDependencies</Name>
       <Private>False</Private>
     </ProjectReference>
@@ -87,7 +93,6 @@
     </PreBuildEvent>
   </PropertyGroup>
   <Target Name="BeforeBuild">
-    <Exec Command="&quot;$(SolutionDir)packages\DiminishDependencies.Tool.1.0.1\tools\DiminishDependencies.exe&quot; -o &quot;$(ProjectDir)Diminish\refs&quot; &quot;$(SolutionDir)DiminishDependencies\$(OutDir)\DiminishDependencies.exe&quot; &quot;$(SolutionDir)DiminishDependencies\$(OutDir)\*.dll&quot;" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
