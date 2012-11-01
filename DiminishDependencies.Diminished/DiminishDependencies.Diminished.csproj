@@ -79,11 +79,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Diminish\refs\DiminishDependencies.exe.dep-lzma" />
+    <EmbeddedResource Include="Diminish\refs\NDesk.Options.dll.dep-lzma" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Diminish\refs\Readme.txt" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Diminish\refs\DiminishDependencies.exe.dep-lzma" />
-    <EmbeddedResource Include="Diminish\refs\NDesk.Options.dll.dep-lzma" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

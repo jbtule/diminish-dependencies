@@ -1,7 +1,7 @@
 using System;
 using System.Reflection;
 
-namespace DiminishDependencies.Diminished.Diminish
+namespace DiminishDependencies.Diminish
 {
     public static class Main<TReturn>
     {

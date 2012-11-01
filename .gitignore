@@ -112,3 +112,6 @@ UpgradeLog*.XML
 
 #built packages
 *.nupkg
+
+#monodevlop user prefs
+*.userprefs

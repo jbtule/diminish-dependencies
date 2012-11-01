@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>DiminishDependencies</id>
-        <version>1.0.1</version>
+        <version>1.1.2</version>
         <title>DiminishDependencies</title>
         <authors>Public Domain</authors>
         <owners>Jay Tuley</owners>
@@ -16,7 +16,10 @@
 		up with a single smaller merged exe.
 		</description>
         <summary>Bootstrap compressed dlls into one merged executable</summary>
-        <releaseNotes>Initial Release</releaseNotes>
+        <releaseNotes>
+			* Added support for mono
+			* Added optional support including symbols
+		</releaseNotes>
         <copyright>Public Domain</copyright>
         <tags>compression dll dependencies ilmerge</tags>
         <dependencies>

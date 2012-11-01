@@ -14,28 +14,41 @@ The suggested way to use this:
  - Add Reference... in `MyProgram.Minified` referencing your `MyProgram` project, so `Copy Local` 
    to `false` in `Properties` of reference.
 
- - Create a prebuild script for `MyProgram.Minified` to copy/compress over your program and dependencies
-   from your `MyProgram` project using `DiminishDependencies.Tool` ->
+ - Create a postbuild script for `MyProgram` to copy/compress over your program and dependencies
+   to your `MyProgram.Mininifed` project using `DiminishDependencies.Tool` ->
 
 ```
-DiminishDependencies.exe -o "$(ProjectDir)Diminish\refs" "$(SolutionDir)MyProgram\$(OutDir)MyProgram.exe"
-DiminishDependencies.exe -o "$(ProjectDir)Diminish\refs" "$(SolutionDir)MyProgram\$(OutDir)*dll"]
+"$(SolutionDir)packages\DiminishDependencies.Tool.1.1.2\tools\DiminishDependencies.exe" -o "$(SolutionDir)DiminishDependencies.Diminished\Diminish\refs" "$(TargetDir)DiminishDependencies.exe" "$(TargetDir)*.dll"
+```
+*in MonoDevelop it would be*
+```
+mono "${SolutionDir}/packages/DiminishDependencies.Tool.1.1.2/tools/DiminishDependencies.exe" -o "$(SolutionDir)/DiminishDependencies.Diminished/Diminish/refs" "$(TargetDir)/DiminishDependencies.exe" "$(TargetDir)/*.dll"
 ```
 
-> **Troubleshooting tip**, nuget for whatever reason doesn't always keep the the path for DiminishedDependencies.exe
-> so using the full path in the prebuild script might make things easier even if you have to change every time you updated
-> DiminishedDendencies from nuget, but you probably won't ever need to update DiminishedDependecies since it's a small bit
-> of public domain source code and tool.
-
- - Build it so the prebuild script runs
+ - Build it so the postbuild script runs
 
  - In `MyProgram.Minified` you have a `Diminish/refs` folder, `add existing` and set to `EmbeddedResource` each of your
-   newly copied and compressed dependencies, eg. `MyProgram.dep-lzma`
+   newly copied and compressed dependencies, *ie.* `MyProgram.exe.dep-lzma, MyDll.dll.dep-lzma, etc.`
 
- - In `MyProgram.Minified.Program.Main()` call your `MyProgram.Program.Main()` --*don't forget to make sure the main
-   function is `public` in your `MyProgram` project.*
+ - In `MyProgram.Minified.Program.Main()` you can use the the convenince method for a latebound call/resolver setup *also don't forget to make sure the main function is `public` in your `MyProgram` project.*
 
- - Add static constructor to MyProgram.Minified.Program
+```
+ public class Program
+    {
+        public static int Main(string[] args)
+        {
+			return Diminish.Main<int>.Call<string[]>(assemblyName:"MyProgram", typeName:"MyProgram.Program")(args);
+         }
+    }
+```
+
+ - Now any subsequent build will produce and up to date compressed and runnable exe.
+
+###Alternatively###
+
+you could try:
+
+ - Adding the resolve code to static constructor to MyProgram.Minified.Program (although you may need to nest calls that need to the resolver just to make sure it doesn't try too early.
 
 ```
      static Program()
@@ -44,4 +57,6 @@ DiminishDependencies.exe -o "$(ProjectDir)Diminish\refs" "$(SolutionDir)MyProgra
         }
 ```
 
- - Now any subsequent build will produce and up to date compressed and runnable exe.
+   * or using a module initializer with [InjectModuleInitializer](http://einaregilsson.com/module-initializers-in-csharp/)
+
+

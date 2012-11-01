@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>DiminishDependencies.Tool</id>
-        <version>1.0.1</version>
+        <version>1.1.2</version>
         <title>DiminishDependencies.Tool</title>
         <authors>Public Domain</authors>
         <owners>Jay Tuley</owners>
@@ -12,7 +12,11 @@
         <description>This is the tool used to copy/compress assemblies using LZMA. This tool is to create the embedded resources that
 		DiminishDependencies bootstrap source needs to dynamically decompress and load at runtime.</description>
         <summary>Tool to copy compress assemblies for use with a DiminishDependency bootstrapped shell app.</summary>
-        <releaseNotes>Initial Release</releaseNotes>
+        <releaseNotes>
+		    * Added support for mono
+			* Changed compression output name scheme
+			* fixed bug with same directory input
+			</releaseNotes>
         <copyright>Public Domain</copyright>
         <tags>compression dll dependencies ilmerge</tags>
         <dependencies>
