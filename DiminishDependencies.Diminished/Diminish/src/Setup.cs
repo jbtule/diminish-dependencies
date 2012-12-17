@@ -37,7 +37,7 @@ namespace DiminishDependencies.Diminished.Diminish
                         using (pdb)
                         using (var memStream = new MemoryStream())
                         {
-                            Zipper.Decode(stream, memStream);
+                            Zipper.Decode(pdb, memStream);
                             symbols = memStream.ToArray();
                         }
                     }
