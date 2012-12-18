@@ -24,11 +24,6 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CustomCommands>
-      <CustomCommands>
-        <Command type="BeforeBuild" command="mono &quot;${SolutionDir}/packages/DiminishDependencies.Tool.1.0.1/tools/DiminishDependencies.exe&quot; -o &quot;${ProjectDir}/Diminish/refs&quot; &quot;${SolutionDir}/DiminishDependencies/bin/debug/DiminishDependencies.exe&quot; &quot;${SolutionDir}/DiminishDependencies/bin/debug/*.dll&quot;" pauseExternalConsole="True" />
-      </CustomCommands>
-    </CustomCommands>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>

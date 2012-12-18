@@ -18,11 +18,11 @@ The suggested way to use this:
    to your `MyProgram.Mininifed` project using `DiminishDependencies.Tool` ->
 
 ```
-"$(SolutionDir)packages\DiminishDependencies.Tool.1.1.2\tools\DiminishDependencies.exe" -o "$(SolutionDir)DiminishDependencies.Diminished\Diminish\refs" "$(TargetDir)DiminishDependencies.exe" "$(TargetDir)*.dll"
+"$(SolutionDir)packages\DiminishDependencies.Tool.1.1.2\tools\DiminishDependencies.exe" -o "$(SolutionDir)MyProgram.Minifiedd\Diminish\refs" "$(TargetDir)MyProgram.exe" "$(TargetDir)*.dll"
 ```
 *in MonoDevelop it would be*
 ```
-mono "${SolutionDir}/packages/DiminishDependencies.Tool.1.1.2/tools/DiminishDependencies.exe" -o "$(SolutionDir)/DiminishDependencies.Diminished/Diminish/refs" "$(TargetDir)/DiminishDependencies.exe" "$(TargetDir)/*.dll"
+mono "${SolutionDir}/packages/DiminishDependencies.Tool.1.1.2/tools/DiminishDependencies.exe" -o "$(SolutionDir)/MyProgram.Minfinified/Diminish/refs" "$(TargetDir)/MyProgram.exe" "$(TargetDir)/*.dll"
 ```
 
  - Build it so the postbuild script runs
